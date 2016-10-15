@@ -1,0 +1,23 @@
+{
+  "name": "boilerplate-static",
+  "description": "A boilerplate to get started for static website projects.",
+  "main": "build/index.php",
+  "authors": [
+    "Alpha Weblab"
+  ],
+  "license": "",
+  "homepage": "https://github.com/alphaweblab/boilerplate-static",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "source/plugins",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "nucleus-framework": "^0.1.1"
+  }
+}

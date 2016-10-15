@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us">
+<head>
+	<meta charset="utf-8" />
+	<title>Nucleus Framework</title>
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<link rel="stylesheet/less" href="master.less" type="text/css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.1/less.js"></script>
+</head>
+<body>
+	<style>
+		body {
+			background-color: #fafafa;
+		}
+		.g-container {
+			background-color: #f1f1f1;
+			height: 400px;
+		}
+	</style>
+	<div class="g-container -typeFixed">
+		<div class="g-grid">
+			<div class="g-column -columnTablet-3 -offsetTablet-6 -orderMobile-2 _hiddenDesktopHD _hiddenDesktop">
+				Fixed - 1
+			</div>
+			<div class="g-column -columnTablet-3 -orderMobile-1">
+				Fixed - 2
+			</div>
+		</div>
+	</div>
+	<div class="g-container -typeFixed">
+		<div class="g-grid -gutterNone">
+			<div class="g-column -percentTablet-20">
+				Fixed
+			</div>
+			<div class="g-column -percentTablet-20">
+				Fixed
+			</div>
+			<div class="g-column -percentTablet-20">
+				Fixed
+			</div>
+			<div class="g-column -percentTablet-20">
+				Fixed
+			</div>
+			<div class="g-column -percentTablet-20">
+				Fixed
+			</div>
+		</div>
+	</div>
+	<div class="g-container -typeFluid">Fluid</div>
+</body>
+</html>

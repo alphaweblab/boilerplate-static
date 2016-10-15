@@ -1,0 +1,17 @@
+{
+  "name": "nucleus-framework",
+  "description": "A simple to use, no bloat code, front-end framework.",
+  "main": "build/nucleus.css",
+  "authors": [
+    "Alpha Weblab"
+  ],
+  "license": "",
+  "homepage": "https://github.com/alphaweblab/nucleus-framework",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
