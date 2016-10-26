@@ -9,8 +9,18 @@ var concat		= require('gulp-concat');
 var prune		= require('gulp-prune');
 var syncy		= require('syncy');
 var minify		= require('gulp-minifier');
+var clean 		= require('gulp-clean');
 
-gulp.task('less', function () {
+gulp.task('clean', function() {
+	return 	gulp.src('./build/**/*', {read: false})
+			.pipe(clean());
+});
+
+gulp.task('sync', ['clean'], function () {
+	return 	syncy(['./source/**', '!./source/plugins/**', '!./source/stylesheets/**', '!./source/scripts/**'], './build', {base: './source'});
+});
+
+gulp.task('less', ['sync'], function () {
 	return 	gulp.src('./source/stylesheets/master.less')
 			.pipe(less())
 			.pipe(gulp.dest('./build/stylesheets'));
@@ -27,7 +37,7 @@ gulp.task('images', function () {
 	        .pipe(gulp.dest('./build/images'));
 });
 
-gulp.task('plugins', function () {
+gulp.task('plugins', ['sync'], function () {
 	return 	gulp.src([
 				'./source/plugins/jquery/dist/jquery.min.js'
 			])
@@ -35,7 +45,7 @@ gulp.task('plugins', function () {
 	        .pipe(gulp.dest('./build/scripts'));
 });
 
-gulp.task('scripts', function () {
+gulp.task('scripts', ['sync'], function () {
 	return 	gulp.src([
 				'./source/scripts/functions.js'
 			])
@@ -43,17 +53,13 @@ gulp.task('scripts', function () {
 	        .pipe(gulp.dest('./build/scripts'));
 });
 
-gulp.task('stylesheets', function () {
+gulp.task('stylesheets', ['less'], function () {
 	return 	gulp.src([
 				'./source/plugins/nucleus-framework/build/nucleus.min.css',
 				'./build/stylesheets/master.css'
 			])
 	        .pipe(concat('master.css'))
 	        .pipe(gulp.dest('./build/stylesheets'));
-});
-
-gulp.task('sync', function () {
-	return 	syncy(['./source/**', '!./source/plugins/**', '!./source/stylesheets/**', '!./source/scripts/**'], './build', {base: './source'});
 });
 
 gulp.task('minify-js', function () {
