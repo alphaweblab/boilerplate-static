@@ -10,6 +10,9 @@ var prune		= require('gulp-prune');
 var syncy		= require('syncy');
 var minify		= require('gulp-minifier');
 var clean 		= require('gulp-clean');
+var browserSync = require('browser-sync');
+
+var reload = browserSync.reload;
 
 gulp.task('clean', function() {
 	return 	gulp.src('./build/**/*', {read: false})
@@ -59,7 +62,8 @@ gulp.task('stylesheets', ['less'], function () {
 				'./build/stylesheets/master.css'
 			])
 	        .pipe(concat('master.css'))
-	        .pipe(gulp.dest('./build/stylesheets'));
+	        .pipe(gulp.dest('./build/stylesheets'))
+			.pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('minify-js', function () {
@@ -86,6 +90,20 @@ gulp.task('minify-css', function () {
 			.pipe(gulp.dest('./build/stylesheets'));
 });
 
+gulp.task('watcher', function () {
+	gulp.watch(['./source/stylesheets/master.less', './source/**/*.php'], ['default']).on('change', reload);
+});
+
+gulp.task('browser-sync', function () {
+	browserSync({
+        proxy: 'localhost/boilerplate-static/build',
+        port: 8080,
+        open: true,
+        notify: true
+    });
+});
+
 gulp.task('default', ['less', 'plugins', 'scripts', 'stylesheets', 'sync']);
+gulp.task('watch', ['default', 'browser-sync', 'watcher']);
 gulp.task('minify', ['minify-css', 'minify-js']);
 gulp.task('optimize_images', ['images']);

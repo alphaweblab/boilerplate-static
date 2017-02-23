@@ -5,5 +5,5 @@
 ?>
 <?php require_once('includes/head.php'); ?>
 <?php require_once('includes/header.php'); ?>
-	<!-- <main> content -->
+<!-- <main> contents -->
 <?php require_once('includes/footer.php'); ?>
