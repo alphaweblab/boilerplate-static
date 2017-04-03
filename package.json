@@ -1,32 +1,31 @@
 {
-  "name": "boilerplate-static",
-  "version": "0.1.2",
-  "description": "A boilerplate to get started for static website projects.",
-  "main": "build/index.php",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://gitlab.com/alphaweblab/boilerplate-static.git"
-  },
-  "author": "Alpha Weblab",
-  "license": "",
-  "bugs": {
-    "url": "https://gitlab.com/alphaweblab/boilerplate-static/issues"
-  },
-  "homepage": "https://gitlab.com/alphaweblab/boilerplate-static#README",
-  "devDependencies": {
-    "browser-sync": "^2.18.8",
-    "gulp": "^3.9.1",
-    "gulp-clean": "^0.3.2",
-    "gulp-concat": "^2.6.0",
-    "gulp-copy": "0.0.2",
-    "gulp-imagemin": "^3.0.3",
-    "gulp-less": "^3.1.0",
-    "gulp-minifier": "^0.1.4",
-    "gulp-prune": "^0.2.0",
-    "gulp-tinypng": "^1.0.2",
-    "syncy": "^2.0.1"
-  }
+	"name": "boilerplate-static",
+	"version": "0.1.2",
+	"description": "A boilerplate to get started for static website projects.",
+	"main": "build/index.php",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://gitlab.com/alphaweblab/boilerplate-static.git"
+	},
+	"author": "Alpha Weblab",
+	"license": "",
+	"bugs": {
+		"url": "https://gitlab.com/alphaweblab/boilerplate-static/issues"
+	},
+	"homepage": "https://gitlab.com/alphaweblab/boilerplate-static#README",
+	"devDependencies": {
+		"gulp": "^3.9.1",
+		"gulp-clean": "^0.3.2",
+		"gulp-concat": "^2.6.0",
+		"gulp-copy": "0.0.2",
+		"gulp-imagemin": "^3.0.3",
+		"gulp-less": "^3.1.0",
+		"gulp-minifier": "^0.1.4",
+		"gulp-prune": "^0.2.0",
+		"gulp-tinypng": "^1.0.2",
+	},
+	"dependencies": {}
 }
