@@ -1,6 +1,6 @@
 {
 	"name": "boilerplate-static",
-	"version": "0.1.2",
+	"version": "0.1.4",
 	"description": "A boilerplate to get started for static website projects.",
 	"main": "build/index.php",
 	"scripts": {
