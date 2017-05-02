@@ -1,0 +1,13 @@
+@import '../settings/variables';
+
+@mixin position($type, $side: none, $x: 0, $y: 0) {
+	position: $type;
+	@if $side == left { left: $x; }
+	@if $side == right { right: $x; }
+	@if $side == top { top: $y; }
+	@if $side == bottom { top: $y; }
+	@if $side == top-left { left: $x; top: $y; }
+	@if $side == top-right { right: $x; top: $y; }
+	@if $side == bottom-left { left: $x; bottom: $y; }
+	@if $side == bottom-right { right: $x; bottom: $y; }
+}

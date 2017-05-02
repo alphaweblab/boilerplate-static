@@ -1,7 +1,7 @@
 {
   "name": "nucleus-framework",
   "description": "A simple to use, no bloat code, front-end framework.",
-  "main": "build/nucleus.css",
+  "main": "source/nucleus.scss",
   "authors": [
     "Alpha Weblab"
   ],

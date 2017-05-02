@@ -1,17 +1,22 @@
 'use strict';
 
 var gulp		= require('gulp');
-var less		= require('gulp-less');
+var sass		= require('gulp-sass');
 var minify		= require('gulp-minifier');
 var dest		= require('gulp-dest');
 
-gulp.task('less', function () {
-	return 	gulp.src('./source/nucleus.less')
-			.pipe(less())
+gulp.task('sync', function () {
+	return 	gulp.src('./source/index.html')
 			.pipe(gulp.dest('./build'));
 });
 
-gulp.task('minify-css', function () {
+gulp.task('sass', ['sync'], function () {
+	return 	gulp.src('./source/nucleus.scss')
+			.pipe(sass().on('error', sass.logError))
+			.pipe(gulp.dest('./build'));
+});
+
+gulp.task('minify-css', ['sass'], function () {
 	return	gulp.src('./build/nucleus.css')
 			.pipe(minify({
 				minify: true,
@@ -24,4 +29,9 @@ gulp.task('minify-css', function () {
 			.pipe(gulp.dest('./'));
 });
 
-gulp.task('default', ['less', 'minify-css']);
+gulp.task('sass:watch', function () {
+	gulp.watch(['./source/**/*.scss', './source/index.html'], ['sass']);
+});
+
+gulp.task('default', ['minify-css']);
+gulp.task('watch', ['sass:watch']);

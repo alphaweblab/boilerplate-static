@@ -1,0 +1,5 @@
+@import '../settings/variables';
+
+@mixin level($level) {
+	z-index: $level;
+}

@@ -1,0 +1,25 @@
+@import '../settings/variables';
+@import '../plugins/open-color/open-color';
+
+@function color($shade: primary, $weight: 500) {
+	@if $shade == primary {
+		@return map-get($colors, primary);
+	} @else if $shade == accent {
+		@return map-get($colors, accent);
+	} @else if $shade == secondary {
+		@return map-get($colors, secondary);
+	} @else if $shade == white {
+		@return $color-white;
+	} @else if $shade == black {
+		@return $color-black;
+	} @else if $shade == light {
+		@return map-get($color-light-list, $weight);
+	} @else if $shade == dark {
+		@return map-get($color-dark-list, $weight);
+	} @else {
+		$weight-converted: $weight / 100;
+		$color-list: map-get($oc-color-list-reverse, #{$shade});
+		$color-return: map-get($color-list, #{$weight-converted});
+		@return $color-return;
+	}
+}

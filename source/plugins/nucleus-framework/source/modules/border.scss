@@ -1,0 +1,9 @@
+@import '../settings/variables';
+@import 'color';
+
+@mixin border($side: all, $width: 1px, $color: color(gray, 100), $style: solid) {
+	$properties: map-get($sides, $side);
+	@each $property in $properties {
+		border-#{$property}: $width $style $color;
+	}
+}

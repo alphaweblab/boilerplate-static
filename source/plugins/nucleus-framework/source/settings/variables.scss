@@ -1,0 +1,148 @@
+/***
+
+VARIABLES
+This is master variables file. This file must not be edited.
+
+***/
+
+/***
+
+IMPORT CUSTOMIZATIONS
+This file imports settings.less file. Any customization must be updated in
+settings.less file.
+
+***/
+
+@import '../config';
+
+// Scale
+$scale: map-get($config, scale);
+
+// Sizes
+$sizes-list: (
+	grid4px: (
+		xx-small: 0.125rem,
+		x-small: 0.25rem,
+		small: 0.50rem,
+		medium: 0.75rem,
+		large: 1.00rem,
+		x-large: 1.25rem,
+		xx-large: 1.50rem,
+	),
+	grid8px: (
+		xx-small: 0.125rem,
+		x-small: 0.25rem,
+		small: 0.50rem,
+		medium: 1.00rem,
+		large: 1.50rem,
+		x-large: 2.00rem,
+		xx-large: 2.50rem,
+	),
+	fibonacci: (
+		xx-small: 0.25rem,
+		x-small: 0.50rem,
+		small: 0.75rem,
+		medium: 1.25rem,
+		large: 2.00rem,
+		x-large: 3.25rem,
+		xx-large: 5.25rem,
+	)
+);
+$sizes: map-get($sizes-list, #{map-get($config, size)});
+
+// Sides
+$sides: (
+	all: (left, right, top, bottom,),
+	left: (left,),
+	right: (right,),
+	top: (top,),
+	bottom: (bottom,),
+	horizontal: (left, right,),
+	vertical: (top, bottom,),
+	top-left: (top, left,),
+	top-right: (top, right,),
+	bottom-left: (bottom, left,),
+	bottom-right: (bottom, right,)
+);
+
+// Border Radius Sides
+$border-radius-sides: (
+	all: (top-left, top-right, bottom-left, bottom-right),
+	left: (top-left, bottom-left),
+	right: (top-right, bottom-right),
+	top: (top-left, top-right),
+	bottom: (bottom-left, bottom-right),
+	top-left: (top-left),
+	top-right: (top-right),
+	bottom-left: (bottom-left),
+	bottom-right: (bottom-right)
+);
+
+// Grid
+$grid: map-get($config, grid);
+
+// Breakpoints
+$breakpoints-list: map-get($config, breakpoints);
+$breakpoint-scales: (
+	mobile-min: map-get($breakpoints-list, mobile),
+	mobile-max: map-get($breakpoints-list, tablet) - 1px,
+	tablet-min: map-get($breakpoints-list, tablet),
+	tablet-max: map-get($breakpoints-list, desktop) - 1px,
+	desktop-min: map-get($breakpoints-list, desktop),
+	desktop-max: map-get($breakpoints-list, highdef) - 1px,
+	highdef-min: map-get($breakpoints-list, highdef)
+);
+
+// Containers
+$containers: map-get($config, containers);
+
+// Colors
+$colors: map-get($config, colors);
+$color-white: #fff;
+$color-black: #000;
+$color-light-list: (
+	"100": transparentize($color-white, 0.90),
+	"200": transparentize($color-white, 0.80),
+	"300": transparentize($color-white, 0.70),
+	"400": transparentize($color-white, 0.60),
+	"500": transparentize($color-white, 0.50),
+	"600": transparentize($color-white, 0.40),
+	"700": transparentize($color-white, 0.30),
+	"800": transparentize($color-white, 0.20),
+	"900": transparentize($color-white, 0.10),
+);
+$color-dark-list: (
+	"100": transparentize($color-black, 0.90),
+	"200": transparentize($color-black, 0.80),
+	"300": transparentize($color-black, 0.70),
+	"400": transparentize($color-black, 0.60),
+	"500": transparentize($color-black, 0.50),
+	"600": transparentize($color-black, 0.40),
+	"700": transparentize($color-black, 0.30),
+	"800": transparentize($color-black, 0.20),
+	"900": transparentize($color-black, 0.10),
+);
+
+// Shadows
+$box-shadow-levels: (
+	"1": "0 0 0.125rem #{transparentize($color-black, 0.84)}",
+	"2": "0 0 0.25rem #{transparentize($color-black, 0.84)}",
+	"3": "0 0 1.00rem #{transparentize($color-black, 0.68)}",
+	"4": "0 0 2.00rem #{transparentize($color-black, 0.68)}",
+);
+
+// Fonts
+$fonts: map-get($config, fonts);
+
+// Typography Scale
+$typography-list: map-get($config, typography);
+$typography-scale: map-get($typography-list, scale);
+$typography-scales: (
+	heading: (
+		x-large: 1rem * $typography-scale * $typography-scale * $typography-scale,
+		large: 1rem * $typography-scale * $typography-scale,
+		medium: 1rem * $typography-scale,
+		small: 1rem,
+		x-small: 1rem / $typography-scale,
+	)
+);

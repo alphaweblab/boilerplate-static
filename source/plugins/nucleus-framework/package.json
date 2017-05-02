@@ -1,13 +1,13 @@
 {
   "name": "nucleus-framework",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "description": "A simple to use, no bloat code, front-end framework.",
   "main": "gulpfile.js",
   "devDependencies": {
-	"gulp": "^3.9.1",
+    "gulp": "^3.9.1",
     "gulp-dest": "^0.2.3",
-    "gulp-less": "^3.1.0",
-    "gulp-minifier": "^0.1.4"
+    "gulp-minifier": "^0.1.4",
+    "gulp-sass": "^3.1.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

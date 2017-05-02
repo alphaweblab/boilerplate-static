@@ -1,0 +1,14 @@
+@import '../settings/variables';
+@import 'breakpoint';
+
+@mixin show($device, $display: block) {
+	@include breakpoint($device) {
+		display: $display;
+	}
+}
+
+@mixin hide($device, $display: none) {
+	@include breakpoint($device) {
+		display: none;
+	}
+}

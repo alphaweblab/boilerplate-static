@@ -1,7 +1,9 @@
 'use strict';
 
+var projectName	= __dirname.split('/')[__dirname.split('/').length-1];
+
 var gulp		= require('gulp');
-var less		= require('gulp-less');
+var sass		= require('gulp-sass');
 var copy		= require('gulp-copy');
 var path		= require('path');
 var tinypng		= require('gulp-tinypng');
@@ -9,6 +11,16 @@ var concat		= require('gulp-concat');
 var prune		= require('gulp-prune');
 var minify		= require('gulp-minifier');
 var clean 		= require('gulp-clean');
+var browserSync	= require('browser-sync').create();
+
+gulp.task('serve', ['sass'], function() {
+    browserSync.init({
+		proxy: "localhost/"+projectName+"/build"
+	});
+    gulp.watch("./source/**/*.scss", ['sass']);
+    gulp.watch("./source/**/*.php", ['default-watch']);
+	gulp.watch("./source/**/*.js", ['default-watch']);
+});
 
 gulp.task('clean', function() {
 	return 	gulp.src('./build', {read: false})
@@ -20,10 +32,11 @@ gulp.task('sync', ['clean'], function () {
 			.pipe(gulp.dest('./build'));
 });
 
-gulp.task('less', ['sync'], function () {
-	return 	gulp.src('./source/stylesheets/master.less')
-			.pipe(less())
-			.pipe(gulp.dest('./build/stylesheets'));
+gulp.task('sass', ['sync'], function () {
+	return 	gulp.src('./source/stylesheets/master.scss')
+			.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+			.pipe(gulp.dest('./build/stylesheets'))
+			.pipe(browserSync.stream());
 });
 
 gulp.task('fonts', ['sync'], function () {
@@ -53,9 +66,8 @@ gulp.task('scripts', ['sync'], function () {
 	        .pipe(gulp.dest('./build/scripts'));
 });
 
-gulp.task('stylesheets', ['less'], function () {
+gulp.task('stylesheets', ['sass'], function () {
 	return 	gulp.src([
-				'./source/plugins/nucleus-framework/build/nucleus.min.css',
 				'./build/stylesheets/master.css'
 			])
 	        .pipe(concat('master.css'))
@@ -86,11 +98,11 @@ gulp.task('minify-css', function () {
 			.pipe(gulp.dest('./build/stylesheets'));
 });
 
-gulp.task('watcher', ['default'], function () {
-	gulp.watch(['./source/stylesheets/master.less', './source/**/*.php'], ['default']);
+gulp.task('default', ['sass', 'plugins', 'scripts', 'stylesheets', 'sync', 'fonts']);
+gulp.task('default-watch', ['sass', 'plugins', 'scripts', 'stylesheets', 'sync', 'fonts'], function (done) {
+	browserSync.reload();
+    done();
 });
-
-gulp.task('default', ['less', 'plugins', 'scripts', 'stylesheets', 'sync', 'fonts']);
-gulp.task('watch', ['default', 'watcher']);
+gulp.task('watch', ['default', 'serve']);
 gulp.task('minify', ['minify-css', 'minify-js']);
 gulp.task('optimize_images', ['images']);

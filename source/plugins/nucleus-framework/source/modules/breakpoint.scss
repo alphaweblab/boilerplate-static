@@ -1,0 +1,37 @@
+@mixin breakpoint($breakpoint) {
+	@if $breakpoint == mobile {
+		@media (min-width: map-get($breakpoint-scales, mobile-min)) {
+			@content
+		}
+	};
+	@if $breakpoint == mobile-only {
+		@media (min-width: map-get($breakpoint-scales, mobile-min)) and (max-width: map-get($breakpoint-scales, mobile-max)) {
+			@content
+		}
+	};
+	@if $breakpoint == tablet {
+		@media (min-width: map-get($breakpoint-scales, tablet-min)) {
+			@content
+		}
+	};
+	@if $breakpoint == tablet-only {
+		@media (min-width: map-get($breakpoint-scales, tablet-min)) and (max-width: map-get($breakpoint-scales, tablet-max)) {
+			@content
+		}
+	};
+	@if $breakpoint == desktop {
+		@media (min-width: map-get($breakpoint-scales, desktop-min)) {
+			@content
+		}
+	};
+	@if $breakpoint == desktop-only {
+		@media (min-width: map-get($breakpoint-scales, desktop-min)) and (max-width: map-get($breakpoint-scales, desktop-max)) {
+			@content
+		}
+	};
+	@if $breakpoint == highdef {
+		@media (min-width: map-get($breakpoint-scales, highdef-min)) {
+			@content
+		}
+	};
+}

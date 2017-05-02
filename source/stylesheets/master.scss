@@ -1,0 +1,10 @@
+// Import Nucleus Framework
+@import '../plugins/nucleus-framework/source/nucleus';
+
+// Import fonts
+
+// Styles
+.s-section {
+	@include padding(all, large);
+	@include background-color(color(indigo, 400));
+}

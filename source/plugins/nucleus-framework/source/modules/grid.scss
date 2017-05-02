@@ -1,0 +1,118 @@
+@import '../settings/variables';
+@import 'breakpoint';
+@import '../plugins/type-checking/type-checking';
+
+@mixin grid-container($type: fixed, $gutter: true, $align: flex-start, $content: flex-start, $wrap: wrap) {
+	display: flex;
+	flex-wrap: $wrap;
+	align-items: $align;
+	justify-content: $content;
+
+	@if $type == fixed {
+		width: 1184px;
+		margin-left: auto;
+		margin-right: auto;
+		@include breakpoint(mobile-only) { width: #{map-get($containers, mobile)}; }
+		@include breakpoint(tablet-only) { width: #{map-get($containers, tablet)}; }
+		@include breakpoint(desktop-only) { width: #{map-get($containers, desktop)}; }
+		@include breakpoint(highdef) { width: #{map-get($containers, highdef)}; }
+		@if $gutter == true {
+			padding-right: #{map-get($grid, gutter)};
+			padding-left: #{map-get($grid, gutter)};
+		}
+		@if $gutter == false {
+			padding-right: 0;
+			padding-left: 0;
+		}
+	}
+	@if $type == fluid {
+		width: 100%;
+	}
+	@if $gutter == true {
+		padding-right: #{map-get($grid, gutter)};
+		padding-left: #{map-get($grid, gutter)};
+		.g-cell {
+			width: 100%;
+			padding-right: #{map-get($grid, gutter)};
+			padding-left: #{map-get($grid, gutter)};
+		}
+	}
+}
+
+@mixin grid-cell($cell: all, $size: 12, $device: mobile, $order: 0,  $grow: 0, $shrink: 0, $align: flex-start) {
+	@include breakpoint($device) {
+		@if $cell == all {
+			.g-cell {
+				flex: $grow $shrink auto;
+				align-self: $align;
+			}
+			@if is-percentage($size) == true {
+				.g-cell {
+					width: $size;
+				}
+			}
+			@if $size == auto {
+				.g-cell {
+					width: auto;
+				}
+			}
+			@if $size == fill {
+				.g-cell {
+					flex: 1 1 auto;
+					width: auto;
+				}
+			}
+			@if is-percentage($size) == false and $size != auto and $size != fill {
+				.g-cell {
+					width: (100% / map-get($grid, columns)) * $size;
+				}
+			}
+		}
+		@if is-number($cell) == true {
+			.g-cell:nth-child(#{$cell}) {
+				flex: $grow $shrink auto;
+				align-self: $align;
+				@if $order != 0 {
+					order: $order;
+				}
+			}
+			@if is-percentage($size) == true {
+				.g-cell:nth-child(#{$cell}) {
+					width: $size;
+				}
+			}
+			@if $size == auto {
+				.g-cell:nth-child(#{$cell}) {
+					width: auto;
+				}
+			}
+			@if $size == fill {
+				.g-cell:nth-child(#{$cell}) {
+					flex: 1 1 auto;
+					width: auto;
+				}
+			}
+			@if is-percentage($size) == false and $size != auto and $size != fill {
+				.g-cell:nth-child(#{$cell}) {
+					width: (100% / map-get($grid, columns)) * $size;
+				}
+			}
+		}
+	}
+}
+
+@mixin grid-cell-hide($cell, $device, $display: none) {
+	@include breakpoint($device) {
+		.g-cell:nth-child(#{$cell}) {
+			display: $display;
+		}
+	}
+}
+
+@mixin grid-cell-show($cell, $device, $display: block) {
+	@include breakpoint($device) {
+		.g-cell:nth-child(#{$cell}) {
+			display: $display;
+		}
+	}
+}

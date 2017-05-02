@@ -1,0 +1,41 @@
+@import '../settings/variables';
+
+@mixin padding($side, $size) {
+	$type: padding;
+	$properties: map-get($sides, $side);
+	@if is-length($size) == false {
+		@each $property in $properties {
+			#{$type}-#{$property}: #{map-get($sizes, $size)};
+		}
+	}
+	@if is-length($size) == true {
+		@each $property in $properties {
+			#{$type}-#{$property}: $size;
+		}
+	}
+	@if is-percentage($size) == true {
+		@each $property in $properties {
+			#{$type}-#{$property}: $size;
+		}
+	}
+}
+
+@mixin margin($side, $size) {
+	$type: margin;
+	$properties: map-get($sides, $side);
+	@if is-length($size) == false {
+		@each $property in $properties {
+			#{$type}-#{$property}: #{map-get($sizes, $size)};
+		}
+	}
+	@if is-length($size) == true {
+		@each $property in $properties {
+			#{$type}-#{$property}: $size;
+		}
+	}
+	@if is-percentage($size) == true {
+		@each $property in $properties {
+			#{$type}-#{$property}: $size;
+		}
+	}
+}
