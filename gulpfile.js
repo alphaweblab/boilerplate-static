@@ -101,4 +101,5 @@ gulp.task('default', ['sass', 'plugins', 'scripts', 'stylesheets', 'sync', 'font
     done();
 });
 
-gulp.task('build', ['default', 'images', 'minify-css', 'minify-js']);
+gulp.task('build', ['default', 'minify-css', 'minify-js']);
+gulp.task('build:image', ['default', 'images', 'minify-css', 'minify-js']);
