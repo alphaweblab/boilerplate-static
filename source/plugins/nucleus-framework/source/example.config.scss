@@ -10,7 +10,7 @@ size: grid4px|grid8px|fibonacci
 
 $config: (
 	scale: 16px,
-	size: grid4px,
+	size: grid8px,
 	grid: (
 		gutter: 1rem,
 		columns: 12
@@ -35,7 +35,8 @@ $config: (
 	fonts: (
 		heading: 'Libre Franklin, Arial, sans-serif',
 		body: 'Open Sans, Arial, sans-serif',
-		additional: 'Roboto, Arial, sans-serif'
+		additional: 'Roboto, Arial, sans-serif',
+		icon: 'Ionicons'
 	),
 	typography: (
 		scale: 1.414

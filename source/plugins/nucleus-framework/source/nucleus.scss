@@ -1,15 +1,33 @@
 @import 'settings/variables';
 @import 'modules/reset';
-@import 'modules/space';
-@import 'modules/size';
 @import 'modules/grid';
-@import 'modules/display';
-@import 'modules/position';
 @import 'modules/color';
-@import 'modules/background';
-@import 'modules/border';
-@import 'modules/align';
-@import 'modules/flex';
+@import 'modules/space';
 @import 'modules/shadow';
 @import 'modules/corner';
 @import 'modules/typography';
+@import 'modules/level';
+
+.s-section {
+	padding-top: space(large);
+	padding-bottom: space(large);
+}
+
+.c-heading {
+	padding-left: 2rem;
+	padding-bottom: 2rem;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 1rem;
+	font-weight: 400;
+}
+
+.c-cell {
+	background-color: color(blue, 200);
+	border: 1px solid color(blue, 600);
+	padding: 0.5rem 0;
+	text-align: center;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 0.875rem;
+	font-weight: 300;
+	color: color(blue, 900);
+}
