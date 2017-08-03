@@ -11,6 +11,8 @@ var concat			= require('gulp-concat');
 var minify			= require('gulp-minifier');
 var clean 			= require('gulp-clean');
 var autoprefixer	= require('gulp-autoprefixer');
+var replace 		= require('gulp-replace');
+var inlinesource	= require('gulp-inline-source');
 var browserSync		= require('browser-sync').create();
 
 gulp.task('clean', function() {
@@ -92,6 +94,18 @@ gulp.task('minify-js', ['scripts'], function () {
 			.pipe(gulp.dest('./build/scripts'));
 });
 
+gulp.task('replace-path', ['minify-css'], function () {
+	return	gulp.src('./build/stylesheets/master.css')
+			.pipe(replace('../images', 'images'))
+			.pipe(gulp.dest('./build/stylesheets'));
+});
+
+gulp.task('inline-source', ['replace-path'], function () {
+    return 	gulp.src('./source/includes/head.php')
+        	.pipe(inlinesource({rootpath: path.resolve('build'), swallowErrors: true}))
+        	.pipe(gulp.dest('./build/includes'));
+});
+
 gulp.task('watch', ['default'], function() {
     browserSync.init({
 		proxy: "localhost/"+projectName+"/build"
@@ -106,5 +120,5 @@ gulp.task('default', ['sass', 'plugins', 'scripts', 'stylesheets', 'sync', 'font
     done();
 });
 
-gulp.task('build', ['default', 'minify-css', 'minify-js']);
-gulp.task('build:image', ['default', 'images', 'minify-css', 'minify-js']);
+gulp.task('build', ['default', 'minify-css', 'minify-js', 'inline-source']);
+gulp.task('build:image', ['default', 'images', 'minify-css', 'minify-js', 'inline-source']);
