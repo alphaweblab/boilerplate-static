@@ -1,16 +1,17 @@
 'use strict';
 
-var projectName	= __dirname.split('/')[__dirname.split('/').length-1];
+var projectName		= __dirname.split('/')[__dirname.split('/').length-1];
 
-var gulp		= require('gulp');
-var sass		= require('gulp-sass');
-var copy		= require('gulp-copy');
-var path		= require('path');
-var tinypng		= require('gulp-tinypng');
-var concat		= require('gulp-concat');
-var minify		= require('gulp-minifier');
-var clean 		= require('gulp-clean');
-var browserSync	= require('browser-sync').create();
+var gulp			= require('gulp');
+var sass			= require('gulp-sass');
+var copy			= require('gulp-copy');
+var path			= require('path');
+var tinypng			= require('gulp-tinypng');
+var concat			= require('gulp-concat');
+var minify			= require('gulp-minifier');
+var clean 			= require('gulp-clean');
+var autoprefixer	= require('gulp-autoprefixer');
+var browserSync		= require('browser-sync').create();
 
 gulp.task('clean', function() {
 	return 	gulp.src('./build', {read: false})
@@ -60,6 +61,10 @@ gulp.task('stylesheets', ['sass'], function () {
 				'./build/stylesheets/master.css'
 			])
 	        .pipe(concat('master.css'))
+			.pipe(autoprefixer({
+		            browsers: ['last 2 versions'],
+		            cascade: false
+			}))
 	        .pipe(gulp.dest('./build/stylesheets'));
 });
 
