@@ -2,191 +2,74 @@
 
 VARIABLES
 This is master variables file. This file must not be edited.
+Here is the variable name format for further implementation and customization.
+
+namespace-module-parameter-variant
+e.g. nc-breakpoints-mobile-start
 
 ***/
 
-/***
-
-IMPORT CUSTOMIZATIONS
-This file imports settings.less file. Any customization must be updated in
-settings.less file.
-
-***/
-
-@import '../config';
-
-// Scale
-$scale: map-get($config, scale);
-
-// Sizes
-$sizes-list: (
-	grid4px: (
-		xx-small: 0.125rem,
-		x-small: 0.25rem,
-		small: 0.50rem,
-		medium: 0.75rem,
-		large: 1.00rem,
-		x-large: 1.25rem,
-		xx-large: 1.50rem,
-	),
-	grid8px: (
-		xx-small: 0.125rem,
-		x-small: 0.25rem,
-		small: 0.50rem,
-		medium: 1.00rem,
-		large: 2.00rem,
-		x-large: 3.00rem,
-		xx-large: 4.00rem,
-	),
-	fibonacci: (
-		xx-small: 0.25rem,
-		x-small: 0.50rem,
-		small: 0.75rem,
-		medium: 1.25rem,
-		large: 2.00rem,
-		x-large: 3.25rem,
-		xx-large: 5.25rem,
-	)
-);
-$sizes: map-get($sizes-list, #{map-get($config, size)});
-
-// Sides
-$sides: (
-	all: (left, right, top, bottom,),
-	left: (left,),
-	right: (right,),
-	top: (top,),
-	bottom: (bottom,),
-	horizontal: (left, right,),
-	vertical: (top, bottom,),
-	top-left: (top, left,),
-	top-right: (top, right,),
-	bottom-left: (bottom, left,),
-	bottom-right: (bottom, right,)
-);
-
-// Border Radius Sides
-$border-radius-sides: (
-	all: (top-left, top-right, bottom-left, bottom-right),
-	left: (top-left, bottom-left),
-	right: (top-right, bottom-right),
-	top: (top-left, top-right),
-	bottom: (bottom-left, bottom-right),
-	top-left: (top-left),
-	top-right: (top-right),
-	bottom-left: (bottom-left),
-	bottom-right: (bottom-right)
-);
+// Configs
+$nc-sizing-scale: 16px !default;
 
 // Grid
-$grid: map-get($config, grid);
+$nc-grid-gutter: 1rem !default;
+$nc-grid-columns: 12 !default;
 
 // Breakpoints
-$breakpoints-list: map-get($config, breakpoints);
-$breakpoint-scales: (
-	mobile-min: map-get($breakpoints-list, mobile),
-	mobile-max: map-get($breakpoints-list, tablet) - 1px,
-	tablet-min: map-get($breakpoints-list, tablet),
-	tablet-max: map-get($breakpoints-list, desktop) - 1px,
-	desktop-min: map-get($breakpoints-list, desktop),
-	desktop-max: map-get($breakpoints-list, highdef) - 1px,
-	highdef-min: map-get($breakpoints-list, highdef)
-);
+$nc-breakpoints-mobile-start: 0 !default;
+$nc-breakpoints-mobile-end: 767px !default;
+$nc-breakpoints-tablet-start: 768px !default;
+$nc-breakpoints-tablet-end: 991px !default;
+$nc-breakpoints-desktop-start: 992px !default;
+$nc-breakpoints-desktop-end: 1199px !default;
+$nc-breakpoints-highdef-start: 1200px !default;
 
 // Containers
-$containers: map-get($config, containers);
+$nc-containers-mobile: 100% !default;
+$nc-containers-tablet: 100% !default;
+$nc-containers-desktop: 960px !default;
+$nc-containers-highdef: 1184px !default;
 
 // Colors
-$colors: map-get($config, colors);
-$color-white: #fff;
-$color-black: #000;
-$color-light-list: (
-	"100": transparentize($color-white, 0.90),
-	"200": transparentize($color-white, 0.80),
-	"300": transparentize($color-white, 0.70),
-	"400": transparentize($color-white, 0.60),
-	"500": transparentize($color-white, 0.50),
-	"600": transparentize($color-white, 0.40),
-	"700": transparentize($color-white, 0.30),
-	"800": transparentize($color-white, 0.20),
-	"900": transparentize($color-white, 0.10),
-);
-$color-dark-list: (
-	"100": transparentize($color-black, 0.90),
-	"200": transparentize($color-black, 0.80),
-	"300": transparentize($color-black, 0.70),
-	"400": transparentize($color-black, 0.60),
-	"500": transparentize($color-black, 0.50),
-	"600": transparentize($color-black, 0.40),
-	"700": transparentize($color-black, 0.30),
-	"800": transparentize($color-black, 0.20),
-	"900": transparentize($color-black, 0.10),
-);
-$color-primary-list: (
-	"0"	 : map-get($colors, primary),
-	"100": transparentize(map-get($colors, primary), 0.90),
-	"200": transparentize(map-get($colors, primary), 0.80),
-	"300": transparentize(map-get($colors, primary), 0.70),
-	"400": transparentize(map-get($colors, primary), 0.60),
-	"500": transparentize(map-get($colors, primary), 0.50),
-	"600": transparentize(map-get($colors, primary), 0.40),
-	"700": transparentize(map-get($colors, primary), 0.30),
-	"800": transparentize(map-get($colors, primary), 0.20),
-	"900": transparentize(map-get($colors, primary), 0.10),
-);
-$color-accent-list: (
-	"0"	 : map-get($colors, accent),
-	"100": transparentize(map-get($colors, accent), 0.90),
-	"200": transparentize(map-get($colors, accent), 0.80),
-	"300": transparentize(map-get($colors, accent), 0.70),
-	"400": transparentize(map-get($colors, accent), 0.60),
-	"500": transparentize(map-get($colors, accent), 0.50),
-	"600": transparentize(map-get($colors, accent), 0.40),
-	"700": transparentize(map-get($colors, accent), 0.30),
-	"800": transparentize(map-get($colors, accent), 0.20),
-	"900": transparentize(map-get($colors, accent), 0.10),
-);
-$color-secondary-list: (
-	"0"	 : map-get($colors, secondary),
-	"100": transparentize(map-get($colors, secondary), 0.90),
-	"200": transparentize(map-get($colors, secondary), 0.80),
-	"300": transparentize(map-get($colors, secondary), 0.70),
-	"400": transparentize(map-get($colors, secondary), 0.60),
-	"500": transparentize(map-get($colors, secondary), 0.50),
-	"600": transparentize(map-get($colors, secondary), 0.40),
-	"700": transparentize(map-get($colors, secondary), 0.30),
-	"800": transparentize(map-get($colors, secondary), 0.20),
-	"900": transparentize(map-get($colors, secondary), 0.10),
-);
-
-// Shadows
-$box-shadow-levels: (
-	"1": "0 0 0.125rem #{transparentize($color-black, 0.84)}",
-	"2": "0 0 0.25rem #{transparentize($color-black, 0.84)}",
-	"3": "0 0 1.00rem #{transparentize($color-black, 0.68)}",
-	"4": "0 0 2.00rem #{transparentize($color-black, 0.68)}",
-);
+$nc-colors-white: #fff !default;
+$nc-colors-black: #000 !default;
+$nc-colors-primary: blue !default;
+$nc-colors-accent: yellow !default;
+$nc-colors-secondary: pink !default;
 
 // Fonts
-$fonts: map-get($config, fonts);
+$nc-fonts-heading: 'Libre Franklin, Arial, sans-serif' !default;
+$nc-fonts-body: 'Open Sans, Arial, sans-serif' !default;
+$nc-fonts-additional: 'Roboto, Arial, sans-serif' !default;
 
-// Typography Scale
-$typography-list: map-get($config, typography);
-$typography-scale: map-get($typography-list, scale);
-$typography-scale-half: ((map-get($typography-list, scale) - 1) / 4) + 1;
-$typography-scales: (
-	heading: (
-		x-large: 1rem * $typography-scale * $typography-scale * $typography-scale,
-		large: 1rem * $typography-scale * $typography-scale,
-		medium: 1rem * $typography-scale,
-		small: 1rem,
-		x-small: 1rem / $typography-scale,
-	),
-	body: (
-		x-large: 1rem * $typography-scale-half * $typography-scale-half * $typography-scale-half,
-		large: 1rem * $typography-scale-half * $typography-scale-half,
-		medium: 1rem * $typography-scale-half,
-		small: 1rem,
-		x-small: 1rem / $typography-scale-half,
-	)
-);
+// Typography
+$nc-typography-scale: 1.414 !default;
+$nc-typography-scale-half: (($nc-typography-scale - 1) / 4) + 1 !default;
+$nc-typography-scale-heading-big: 1rem * $nc-typography-scale * $nc-typography-scale * $nc-typography-scale !default;
+$nc-typography-scale-heading-large: 1rem * $nc-typography-scale * $nc-typography-scale !default;
+$nc-typography-scale-heading-medium: 1rem * $nc-typography-scale !default;
+$nc-typography-scale-heading-small: 1rem !default;
+$nc-typography-scale-heading-little: 1rem / $nc-typography-scale !default;
+$nc-typography-scale-body-big: 1rem * $nc-typography-scale-half * $nc-typography-scale-half * $nc-typography-scale-half !default;
+$nc-typography-scale-body-large: 1rem * $nc-typography-scale-half * $nc-typography-scale-half !default;
+$nc-typography-scale-body-medium: 1rem * $nc-typography-scale-half !default;
+$nc-typography-scale-body-small: 1rem !default;
+$nc-typography-scale-body-little: 1rem / $nc-typography-scale-half !default;
+
+// Sizes
+$nc-size-micro: 0.125rem !default;
+$nc-size-tiny: 0.25rem !default;
+$nc-size-little: 0.50rem !default;
+$nc-size-small: 0.75rem !default;
+$nc-size-medium: 1.00rem !default;
+$nc-size-large: 1.50rem !default;
+$nc-size-big: 2.00rem !default;
+$nc-size-huge: 3.00rem !default;
+$nc-size-gigantic: 4.00rem !default;
+
+// Shadows
+$nc-boxShadow-levels-1: "0 0 0.125rem #{transparentize($nc-colors-black, 0.84)}" !default;
+$nc-boxShadow-levels-2: "0 0 0.25rem #{transparentize($nc-colors-black, 0.84)}" !default;
+$nc-boxShadow-levels-3: "0 0 1.00rem #{transparentize($nc-colors-black, 0.68)}" !default;
+$nc-boxShadow-levels-4: "0 0 2.00rem #{transparentize($nc-colors-black, 0.68)}" !default;

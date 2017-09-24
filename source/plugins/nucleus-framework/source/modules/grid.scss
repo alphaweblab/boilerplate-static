@@ -1,13 +1,14 @@
-@import '../settings/variables';
+@import '../settings/lists';
 @import 'breakpoint';
-@import '../plugins/type-checking/type-checking';
 
 .g-grid {
 	display: flex;
 	flex-wrap: wrap;
-	padding-right: #{map-get($grid, gutter)};
-	padding-left: #{map-get($grid, gutter)};
+	padding-right: $nc-grid-gutter;
+	padding-left: $nc-grid-gutter;
+	.g-grid {padding-left: 0; padding-right: 0; margin-right: -$nc-grid-gutter; margin-left: -$nc-grid-gutter;}
 	&.-gutterNone {padding-left: 0; padding-right: 0;}
+	&.-gutterNone .g-grid {margin-left: 0; margin-right: 0;}
 	&.-gutterNone .g-cell {padding-left: 0; padding-right: 0;}
 	&.-wrapNone {flex-wrap: nowrap;}
 	&.-alignStart {align-items: flex-start;}
@@ -17,18 +18,15 @@
 	&.-contentStart {justify-content: flex-start;}
 	&.-contentEnd {justify-content: flex-end;}
 	&.-contentCenter {justify-content: center;}
-	.g-grid {
-		padding-left: 0;
-		padding-right: 0;
-		margin-right: -#{map-get($grid, gutter)};
-		margin-left: -#{map-get($grid, gutter)};
-	}
+	&.-containerLeft {margin-right: auto;}
+	&.-containerRight {margin-left: auto;}
+	&.-containerCenter {margin-left: auto; margin-right: auto;}
 }
 
 .g-grid > .g-cell {
 	flex: 0 0 auto;
-	padding-right: #{map-get($grid, gutter)};
-	padding-left: #{map-get($grid, gutter)};
+	padding-right: $nc-grid-gutter;
+	padding-left: $nc-grid-gutter;
 	width: 100%;
 	&.-growDisable {flex-grow: 0;}
 	&.-shrinkDisable {flex-shrink: 0;}
@@ -42,11 +40,11 @@
 }
 
 @include breakpoint(mobile) {
-	.g-grid.-typeFixed {width: #{map-get($containers, mobile)};}
+	.g-grid.-typeFixed {width: $nc-containers-mobile;}
 	.g-grid.-typeFluid {width: 100%;}
-	@for $i from 1 through map-get($grid, columns) {
+	@for $i from 1 through $nc-grid-columns {
 		.g-grid > .g-cell.-columnMobile-#{$i} {
-			width: ((100 / map-get($grid, columns)) * $i) * 1%;
+			width: ((100 / $nc-grid-columns) * $i) * 1%;
 		}
 	}
 	@for $i from 1 through 100 {
@@ -54,14 +52,9 @@
 			width: ($i * 1%);
 		}
 	}
-	@for $i from 1 through map-get($grid, columns) {
+	@for $i from 1 through $nc-grid-columns {
 		.g-grid > .g-cell.-offsetMobile-#{$i} {
-			margin-left: (($i * 100) / map-get($grid, columns)) * 1%;
-		}
-	}
-	@for $i from 1 through map-get($grid, columns) {
-		.g-grid > .g-cell.-orderMobile-#{$i} {
-			order: $i;
+			margin-left: (($i * 100) / $nc-grid-columns) * 1%;
 		}
 	}
 }
@@ -69,14 +62,19 @@
 @include breakpoint(mobile-only) {
 	.g-grid > .g-cell.-hideMobile {display: none;}
 	.g-grid > .g-cell.-showMobile {display: block;}
+	@for $i from 1 through $nc-grid-columns {
+		.g-grid > .g-cell.-orderMobile-#{$i} {
+			order: $i;
+		}
+	}
 }
 
 @include breakpoint(tablet) {
-	.g-grid.-typeFixed {width: #{map-get($containers, tablet)};}
+	.g-grid.-typeFixed {width: $nc-containers-tablet;}
 	.g-grid.-typeFluid {width: 100%;}
-	@for $i from 1 through map-get($grid, columns) {
+	@for $i from 1 through $nc-grid-columns {
 		.g-grid > .g-cell.-columnTablet-#{$i} {
-			width: ((100 / map-get($grid, columns)) * $i) * 1%;
+			width: ((100 / $nc-grid-columns) * $i) * 1%;
 		}
 	}
 	@for $i from 1 through 100 {
@@ -84,14 +82,9 @@
 			width: ($i * 1%);
 		}
 	}
-	@for $i from 1 through map-get($grid, columns) {
+	@for $i from 1 through $nc-grid-columns {
 		.g-grid > .g-cell.-offsetTablet-#{$i} {
-			margin-left: (($i * 100) / map-get($grid, columns)) * 1%;
-		}
-	}
-	@for $i from 1 through map-get($grid, columns) {
-		.g-grid > .g-cell.-orderTablet-#{$i} {
-			order: $i;
+			margin-left: (($i * 100) / $nc-grid-columns) * 1%;
 		}
 	}
 }
@@ -99,14 +92,19 @@
 @include breakpoint(tablet-only) {
 	.g-grid > .g-cell.-hideTablet {display: none;}
 	.g-grid > .g-cell.-showTablet {display: block;}
+	@for $i from 1 through $nc-grid-columns {
+		.g-grid > .g-cell.-orderTablet-#{$i} {
+			order: $i;
+		}
+	}
 }
 
 @include breakpoint(desktop) {
-	.g-grid.-typeFixed {width: #{map-get($containers, desktop)};}
+	.g-grid.-typeFixed {width: $nc-containers-desktop;}
 	.g-grid.-typeFluid {width: 100%;}
-	@for $i from 1 through map-get($grid, columns) {
+	@for $i from 1 through $nc-grid-columns {
 		.g-grid > .g-cell.-columnDesktop-#{$i} {
-			width: ((100 / map-get($grid, columns)) * $i) * 1%;
+			width: ((100 / $nc-grid-columns) * $i) * 1%;
 		}
 	}
 	@for $i from 1 through 100 {
@@ -114,14 +112,9 @@
 			width: ($i * 1%);
 		}
 	}
-	@for $i from 1 through map-get($grid, columns) {
+	@for $i from 1 through $nc-grid-columns {
 		.g-grid > .g-cell.-offsetDesktop-#{$i} {
-			margin-left: (($i * 100) / map-get($grid, columns)) * 1%;
-		}
-	}
-	@for $i from 1 through map-get($grid, columns) {
-		.g-grid > .g-cell.-orderDesktop-#{$i} {
-			order: $i;
+			margin-left: (($i * 100) / $nc-grid-columns) * 1%;
 		}
 	}
 }
@@ -129,14 +122,19 @@
 @include breakpoint(desktop-only) {
 	.g-grid > .g-cell.-hideDesktop {display: none;}
 	.g-grid > .g-cell.-showDesktop {display: block;}
+	@for $i from 1 through $nc-grid-columns {
+		.g-grid > .g-cell.-orderDesktop-#{$i} {
+			order: $i;
+		}
+	}
 }
 
 @include breakpoint(highdef) {
-	.g-grid.-typeFixed {width: #{map-get($containers, highdef)};}
+	.g-grid.-typeFixed {width: $nc-containers-highdef;}
 	.g-grid.-typeFluid {width: 100%;}
-	@for $i from 1 through map-get($grid, columns) {
+	@for $i from 1 through $nc-grid-columns {
 		.g-grid > .g-cell.-columnHighdef-#{$i} {
-			width: ((100 / map-get($grid, columns)) * $i) * 1%;
+			width: ((100 / $nc-grid-columns) * $i) * 1%;
 		}
 	}
 	@for $i from 1 through 100 {
@@ -144,14 +142,9 @@
 			width: ($i * 1%);
 		}
 	}
-	@for $i from 1 through map-get($grid, columns) {
+	@for $i from 1 through $nc-grid-columns {
 		.g-grid > .g-cell.-offsetHighdef-#{$i} {
-			margin-left: (($i * 100) / map-get($grid, columns)) * 1%;
-		}
-	}
-	@for $i from 1 through map-get($grid, columns) {
-		.g-grid > .g-cell.-orderHighdef-#{$i} {
-			order: $i;
+			margin-left: (($i * 100) / $nc-grid-columns) * 1%;
 		}
 	}
 }
@@ -159,4 +152,9 @@
 @include breakpoint(highdef) {
 	.g-grid > .g-cell.-hideHighdef {display: none;}
 	.g-grid > .g-cell.-showHighdef {display: block;}
+	@for $i from 1 through $nc-grid-columns {
+		.g-grid > .g-cell.-orderHighdef-#{$i} {
+			order: $i;
+		}
+	}
 }

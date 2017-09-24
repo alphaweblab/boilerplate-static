@@ -1,13 +1,13 @@
-@import '../settings/variables';
+@import '../settings/lists';
 
 @mixin shadow($type, $level) {
 	@if $type == box {
-		box-shadow: #{map-get($box-shadow-levels, #{$level})};
+		box-shadow: #{map-get($nc-boxShadow-levels-list, #{$level})};
 	}
 	@if $type == box-inset {
-		box-shadow: inset #{map-get($box-shadow-levels, #{$level})};
+		box-shadow: inset #{map-get($nc-boxShadow-levels-list, #{$level})};
 	}
 	@if $type == text {
-		text-shadow: #{map-get($box-shadow-levels, #{$level})};
+		text-shadow: #{map-get($nc-boxShadow-levels-list, #{$level})};
 	}
 }

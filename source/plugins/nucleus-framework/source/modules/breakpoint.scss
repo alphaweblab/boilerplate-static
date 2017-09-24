@@ -1,36 +1,36 @@
 @mixin breakpoint($breakpoint) {
 	@if $breakpoint == mobile {
-		@media (min-width: map-get($breakpoint-scales, mobile-min)) {
+		@media (min-width: $nc-breakpoints-mobile-start) {
 			@content
 		}
 	};
 	@if $breakpoint == mobile-only {
-		@media (min-width: map-get($breakpoint-scales, mobile-min)) and (max-width: map-get($breakpoint-scales, mobile-max)) {
+		@media (min-width: $nc-breakpoints-mobile-start) and (max-width: $nc-breakpoints-mobile-end) {
 			@content
 		}
 	};
 	@if $breakpoint == tablet {
-		@media (min-width: map-get($breakpoint-scales, tablet-min)) {
+		@media (min-width: $nc-breakpoints-tablet-start) {
 			@content
 		}
 	};
 	@if $breakpoint == tablet-only {
-		@media (min-width: map-get($breakpoint-scales, tablet-min)) and (max-width: map-get($breakpoint-scales, tablet-max)) {
+		@media (min-width: $nc-breakpoints-tablet-start) and (max-width: $nc-breakpoints-tablet-end) {
 			@content
 		}
 	};
 	@if $breakpoint == desktop {
-		@media (min-width: map-get($breakpoint-scales, desktop-min)) {
+		@media (min-width: $nc-breakpoints-desktop-start) {
 			@content
 		}
 	};
 	@if $breakpoint == desktop-only {
-		@media (min-width: map-get($breakpoint-scales, desktop-min)) and (max-width: map-get($breakpoint-scales, desktop-max)) {
+		@media (min-width: $nc-breakpoints-desktop-start) and (max-width: $nc-breakpoints-desktop-end) {
 			@content
 		}
 	};
 	@if $breakpoint == highdef {
-		@media (min-width: map-get($breakpoint-scales, highdef-min)) {
+		@media (min-width: $nc-breakpoints-highdef-start) {
 			@content
 		}
 	};

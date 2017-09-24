@@ -1,0 +1,24 @@
+@import 'framework';
+
+// Testing Atoms
+.a-sheet {
+	background-color: color(white);
+	border: 1px solid color(gray, 200);
+}
+
+.a-heading-1 {
+	@include typography(heading, big);
+	margin-bottom: space(medium);
+}
+
+.a-heading-2 {
+	@include typography(heading, large);
+	margin-bottom: space(medium);
+}
+
+.a-textContent {
+	@include typography(body, small);
+	margin-bottom: space(medium);
+}
+
+@import 'utilities';

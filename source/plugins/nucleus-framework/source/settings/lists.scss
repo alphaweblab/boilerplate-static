@@ -1,0 +1,156 @@
+/***
+
+LISTS
+This is master lists file. This file must not be edited.
+
+***/
+
+@import 'variables';
+
+$nc-sizes-list: (
+	none: 0,
+	micro: $nc-size-micro,
+	tiny: $nc-size-tiny,
+	little: $nc-size-little,
+	small: $nc-size-small,
+	medium: $nc-size-medium,
+	large: $nc-size-large,
+	big: $nc-size-big,
+	huge: $nc-size-huge,
+	gigantic: $nc-size-gigantic,
+);
+
+$nc-sides-list: (
+	left: (left,),
+	right: (right,),
+	top: (top,),
+	bottom: (bottom,),
+	horizontal: (left, right,),
+	vertical: (top, bottom,),
+);
+
+$nc-colors-light-list: (
+	"0"  : $nc-colors-white,
+	"100": transparentize($nc-colors-white, 0.90),
+	"200": transparentize($nc-colors-white, 0.80),
+	"300": transparentize($nc-colors-white, 0.70),
+	"400": transparentize($nc-colors-white, 0.60),
+	"500": transparentize($nc-colors-white, 0.50),
+	"600": transparentize($nc-colors-white, 0.40),
+	"700": transparentize($nc-colors-white, 0.30),
+	"800": transparentize($nc-colors-white, 0.20),
+	"900": transparentize($nc-colors-white, 0.10),
+);
+$nc-colors-dark-list: (
+	"0"  : $nc-colors-black,
+	"100": transparentize($nc-colors-black, 0.90),
+	"200": transparentize($nc-colors-black, 0.80),
+	"300": transparentize($nc-colors-black, 0.70),
+	"400": transparentize($nc-colors-black, 0.60),
+	"500": transparentize($nc-colors-black, 0.50),
+	"600": transparentize($nc-colors-black, 0.40),
+	"700": transparentize($nc-colors-black, 0.30),
+	"800": transparentize($nc-colors-black, 0.20),
+	"900": transparentize($nc-colors-black, 0.10),
+);
+$nc-colors-primary-list: (
+	"0"	 : $nc-colors-primary,
+	"100": transparentize($nc-colors-primary, 0.90),
+	"200": transparentize($nc-colors-primary, 0.80),
+	"300": transparentize($nc-colors-primary, 0.70),
+	"400": transparentize($nc-colors-primary, 0.60),
+	"500": transparentize($nc-colors-primary, 0.50),
+	"600": transparentize($nc-colors-primary, 0.40),
+	"700": transparentize($nc-colors-primary, 0.30),
+	"800": transparentize($nc-colors-primary, 0.20),
+	"900": transparentize($nc-colors-primary, 0.10),
+);
+$nc-colors-accent-list: (
+	"0"	 : $nc-colors-accent,
+	"100": transparentize($nc-colors-accent, 0.90),
+	"200": transparentize($nc-colors-accent, 0.80),
+	"300": transparentize($nc-colors-accent, 0.70),
+	"400": transparentize($nc-colors-accent, 0.60),
+	"500": transparentize($nc-colors-accent, 0.50),
+	"600": transparentize($nc-colors-accent, 0.40),
+	"700": transparentize($nc-colors-accent, 0.30),
+	"800": transparentize($nc-colors-accent, 0.20),
+	"900": transparentize($nc-colors-accent, 0.10),
+);
+$nc-colors-secondary-list: (
+	"0"	 : $nc-colors-secondary,
+	"100": transparentize($nc-colors-secondary, 0.90),
+	"200": transparentize($nc-colors-secondary, 0.80),
+	"300": transparentize($nc-colors-secondary, 0.70),
+	"400": transparentize($nc-colors-secondary, 0.60),
+	"500": transparentize($nc-colors-secondary, 0.50),
+	"600": transparentize($nc-colors-secondary, 0.40),
+	"700": transparentize($nc-colors-secondary, 0.30),
+	"800": transparentize($nc-colors-secondary, 0.20),
+	"900": transparentize($nc-colors-secondary, 0.10),
+);
+
+$nc-boxShadow-levels-list: (
+	"1": $nc-boxShadow-levels-1,
+	"2": $nc-boxShadow-levels-2,
+	"3": $nc-boxShadow-levels-3,
+	"4": $nc-boxShadow-levels-4,
+);
+
+$nc-fonts-list: (
+	"heading": $nc-fonts-heading,
+	"body": $nc-fonts-body,
+	"additional": $nc-fonts-additional,
+);
+
+$nc-typography-scales-list: (
+	heading: (
+		big: $nc-typography-scale-heading-big,
+		large: $nc-typography-scale-heading-large,
+		medium: $nc-typography-scale-heading-medium,
+		small: $nc-typography-scale-heading-small,
+		little: $nc-typography-scale-heading-little,
+	),
+	body: (
+		big: $nc-typography-scale-body-big,
+		large: $nc-typography-scale-body-large,
+		medium: $nc-typography-scale-body-medium,
+		small: $nc-typography-scale-body-small,
+		little: $nc-typography-scale-body-little,
+	)
+);
+
+$nc-colors-list: (
+	'primary': primary,
+	'accent': accent,
+	'secondary': secondary,
+	'black': black,
+	'white': white,
+	'dark': dark,
+	'light': light,
+	'gray': gray,
+	'red': red,
+	'pink': pink,
+	'grape': grape,
+	'violet': violet,
+	'indigo': indigo,
+	'blue': blue,
+	'cyan': cyan,
+	'teal': teal,
+	'green': green,
+	'lime': lime,
+	'yellow': yellow,
+	'orange': orange,
+);
+
+$nc-color-weights-list: (
+	'100': 100,
+	'200': 200,
+	'300': 300,
+	'400': 400,
+	'500': 500,
+	'600': 600,
+	'700': 700,
+	'800': 800,
+	'900': 900,
+);

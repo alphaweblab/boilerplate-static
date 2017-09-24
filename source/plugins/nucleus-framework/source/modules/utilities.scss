@@ -1,0 +1,82 @@
+/***
+
+UTILITIES
+This is master utilities file.
+
+***/
+
+// Import dependant components
+@import '../settings/lists';
+@import 'functions';
+@import 'color';
+
+// Generate padding utilities
+@each $size, $sizeValue in $nc-sizes-list {
+	._padding#{capitalize($size)} {padding: $sizeValue;}
+	@each $side, $sides in $nc-sides-list {
+		._padding#{capitalize($side)}#{capitalize($size)} {
+			@each $propSide in $sides {
+				padding-#{$propSide}: $sizeValue;
+			}
+		}
+	}
+}
+
+// Generate margin utilities
+@each $size, $sizeValue in $nc-sizes-list {
+	._margin#{capitalize($size)} {margin: $sizeValue;}
+	@each $side, $sides in $nc-sides-list {
+		._margin#{capitalize($side)}#{capitalize($size)} {
+			@each $propSide in $sides {
+				margin-#{$propSide}: $sizeValue;
+			}
+		}
+	}
+}
+
+// Generate background color utilities
+@each $color, $colorKey in $nc-colors-list {
+	._backgroundColor#{capitalize($color)} {
+		background-color: color($colorKey);
+	}
+	@each $weight, $weightKey in $nc-color-weights-list {
+		._backgroundColor#{capitalize($color)}-#{$weight} {
+			background-color: color($colorKey, $weightKey);
+		}
+	}
+}
+
+// Generate text color utilities
+@each $color, $colorKey in $nc-colors-list {
+	._textColor#{capitalize($color)} {
+		color: color($colorKey);
+	}
+	@each $weight, $weightKey in $nc-color-weights-list {
+		._textColor#{capitalize($color)}-#{$weight} {
+			color: color($colorKey, $weightKey);
+		}
+	}
+}
+
+// Generate text properties utilities
+._textAlignLeft {text-align: left;}
+._textAlignRight {text-align: right;}
+._textAlignCenter {text-align: center;}
+._textAlignJustify {text-align: justify;}
+
+._textTransformUppercase {text-transform: uppercase;}
+._textAlignLowercase {text-transform: lowercase;}
+
+._textStyleItalic {font-style: italic;}
+._textStyleNormal {font-style: normal;}
+._textStyleUnderline {text-decoration: underline;}
+
+._textWeightThin {font-weight: 100;}
+._textWeightLight {font-weight: 200;}
+._textWeightBook {font-weight: 300;}
+._textWeightNormal {font-weight: 400;}
+._textWeightMedium {font-weight: 500;}
+._textWeightSemiBold {font-weight: 600;}
+._textWeightBold {font-weight: 700;}
+._textWeightExtraBold {font-weight: 700;}
+._textWeightBlack {font-weight: 900;}

@@ -1,21 +1,21 @@
-@import '../settings/variables';
+@import '../settings/lists';
 @import '../plugins/open-color/open-color';
 
 @function color($shade: primary, $weight: 0) {
 	@if $shade == primary {
-		@return map-get($color-primary-list, #{$weight});
+		@return map-get($nc-colors-primary-list, #{$weight});
 	} @else if $shade == accent {
-		@return map-get($color-accent-list, #{$weight});
+		@return map-get($nc-colors-accent-list, #{$weight});
 	} @else if $shade == secondary {
-		@return map-get($color-secondary-list, #{$weight});
+		@return map-get($nc-colors-secondary-list, #{$weight});
 	} @else if $shade == white {
-		@return $color-white;
+		@return $nc-colors-white;
 	} @else if $shade == black {
-		@return $color-black;
+		@return $nc-colors-black;
 	} @else if $shade == light {
-		@return map-get($color-light-list, #{$weight});
+		@return map-get($nc-colors-light-list, #{$weight});
 	} @else if $shade == dark {
-		@return map-get($color-dark-list, #{$weight});
+		@return map-get($nc-colors-dark-list, #{$weight});
 	} @else {
 		$weight_actual: 0;
 		@if $weight == 0 {

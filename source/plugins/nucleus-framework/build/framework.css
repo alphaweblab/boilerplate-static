@@ -1,45 +1,33 @@
 /***
 
-VARIABLES
-This is master variables file. This file must not be edited.
-
-***/
-/***
-
-IMPORT CUSTOMIZATIONS
-This file imports settings.less file. Any customization must be updated in
-settings.less file.
-
-***/
-/***
-
-CONFIGURATION
-This is master configuration file for customizing Nucleus Framework.
-Here are the available configuration options:
-
-size: grid4px|grid8px|fibonacci
+LISTS
+This is master lists file. This file must not be edited.
 
 ***/
 /***
 
 VARIABLES
 This is master variables file. This file must not be edited.
+Here is the variable name format for further implementation and customization.
+
+namespace-module-parameter-variant
+e.g. nc-breakpoints-mobile-start
 
 ***/
 /***
 
-IMPORT CUSTOMIZATIONS
-This file imports settings.less file. Any customization must be updated in
-settings.less file.
+LISTS
+This is master lists file. This file must not be edited.
 
 ***/
 /***
 
-CONFIGURATION
-This is master configuration file for customizing Nucleus Framework.
-Here are the available configuration options:
+VARIABLES
+This is master variables file. This file must not be edited.
+Here is the variable name format for further implementation and customization.
 
-size: grid4px|grid8px|fibonacci
+namespace-module-parameter-variant
+e.g. nc-breakpoints-mobile-start
 
 ***/
 * {
@@ -62,24 +50,18 @@ i, cite, em, var, address, dfn {
 
 /***
 
+LISTS
+This is master lists file. This file must not be edited.
+
+***/
+/***
+
 VARIABLES
 This is master variables file. This file must not be edited.
+Here is the variable name format for further implementation and customization.
 
-***/
-/***
-
-IMPORT CUSTOMIZATIONS
-This file imports settings.less file. Any customization must be updated in
-settings.less file.
-
-***/
-/***
-
-CONFIGURATION
-This is master configuration file for customizing Nucleus Framework.
-Here are the available configuration options:
-
-size: grid4px|grid8px|fibonacci
+namespace-module-parameter-variant
+e.g. nc-breakpoints-mobile-start
 
 ***/
 .g-grid {
@@ -87,9 +69,17 @@ size: grid4px|grid8px|fibonacci
   flex-wrap: wrap;
   padding-right: 1rem;
   padding-left: 1rem; }
+  .g-grid .g-grid {
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: -1rem;
+    margin-left: -1rem; }
   .g-grid.-gutterNone {
     padding-left: 0;
     padding-right: 0; }
+  .g-grid.-gutterNone .g-grid {
+    margin-left: 0;
+    margin-right: 0; }
   .g-grid.-gutterNone .g-cell {
     padding-left: 0;
     padding-right: 0; }
@@ -109,11 +99,13 @@ size: grid4px|grid8px|fibonacci
     justify-content: flex-end; }
   .g-grid.-contentCenter {
     justify-content: center; }
-  .g-grid .g-grid {
-    padding-left: 0;
-    padding-right: 0;
-    margin-right: -1rem;
-    margin-left: -1rem; }
+  .g-grid.-containerLeft {
+    margin-right: auto; }
+  .g-grid.-containerRight {
+    margin-left: auto; }
+  .g-grid.-containerCenter {
+    margin-left: auto;
+    margin-right: auto; }
 
 .g-grid > .g-cell {
   flex: 0 0 auto;
@@ -391,7 +383,13 @@ size: grid4px|grid8px|fibonacci
   .g-grid > .g-cell.-offsetMobile-11 {
     margin-left: 91.66667%; }
   .g-grid > .g-cell.-offsetMobile-12 {
-    margin-left: 100%; }
+    margin-left: 100%; } }
+
+@media (min-width: 0) and (max-width: 767px) {
+  .g-grid > .g-cell.-hideMobile {
+    display: none; }
+  .g-grid > .g-cell.-showMobile {
+    display: block; }
   .g-grid > .g-cell.-orderMobile-1 {
     order: 1; }
   .g-grid > .g-cell.-orderMobile-2 {
@@ -416,12 +414,6 @@ size: grid4px|grid8px|fibonacci
     order: 11; }
   .g-grid > .g-cell.-orderMobile-12 {
     order: 12; } }
-
-@media (min-width: 0) and (max-width: 767px) {
-  .g-grid > .g-cell.-hideMobile {
-    display: none; }
-  .g-grid > .g-cell.-showMobile {
-    display: block; } }
 
 @media (min-width: 768px) {
   .g-grid.-typeFixed {
@@ -675,7 +667,13 @@ size: grid4px|grid8px|fibonacci
   .g-grid > .g-cell.-offsetTablet-11 {
     margin-left: 91.66667%; }
   .g-grid > .g-cell.-offsetTablet-12 {
-    margin-left: 100%; }
+    margin-left: 100%; } }
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .g-grid > .g-cell.-hideTablet {
+    display: none; }
+  .g-grid > .g-cell.-showTablet {
+    display: block; }
   .g-grid > .g-cell.-orderTablet-1 {
     order: 1; }
   .g-grid > .g-cell.-orderTablet-2 {
@@ -700,12 +698,6 @@ size: grid4px|grid8px|fibonacci
     order: 11; }
   .g-grid > .g-cell.-orderTablet-12 {
     order: 12; } }
-
-@media (min-width: 768px) and (max-width: 991px) {
-  .g-grid > .g-cell.-hideTablet {
-    display: none; }
-  .g-grid > .g-cell.-showTablet {
-    display: block; } }
 
 @media (min-width: 992px) {
   .g-grid.-typeFixed {
@@ -959,7 +951,13 @@ size: grid4px|grid8px|fibonacci
   .g-grid > .g-cell.-offsetDesktop-11 {
     margin-left: 91.66667%; }
   .g-grid > .g-cell.-offsetDesktop-12 {
-    margin-left: 100%; }
+    margin-left: 100%; } }
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .g-grid > .g-cell.-hideDesktop {
+    display: none; }
+  .g-grid > .g-cell.-showDesktop {
+    display: block; }
   .g-grid > .g-cell.-orderDesktop-1 {
     order: 1; }
   .g-grid > .g-cell.-orderDesktop-2 {
@@ -984,12 +982,6 @@ size: grid4px|grid8px|fibonacci
     order: 11; }
   .g-grid > .g-cell.-orderDesktop-12 {
     order: 12; } }
-
-@media (min-width: 992px) and (max-width: 1199px) {
-  .g-grid > .g-cell.-hideDesktop {
-    display: none; }
-  .g-grid > .g-cell.-showDesktop {
-    display: block; } }
 
 @media (min-width: 1200px) {
   .g-grid.-typeFixed {
@@ -1243,7 +1235,13 @@ size: grid4px|grid8px|fibonacci
   .g-grid > .g-cell.-offsetHighdef-11 {
     margin-left: 91.66667%; }
   .g-grid > .g-cell.-offsetHighdef-12 {
-    margin-left: 100%; }
+    margin-left: 100%; } }
+
+@media (min-width: 1200px) {
+  .g-grid > .g-cell.-hideHighdef {
+    display: none; }
+  .g-grid > .g-cell.-showHighdef {
+    display: block; }
   .g-grid > .g-cell.-orderHighdef-1 {
     order: 1; }
   .g-grid > .g-cell.-orderHighdef-2 {
@@ -1269,161 +1267,67 @@ size: grid4px|grid8px|fibonacci
   .g-grid > .g-cell.-orderHighdef-12 {
     order: 12; } }
 
-@media (min-width: 1200px) {
-  .g-grid > .g-cell.-hideHighdef {
-    display: none; }
-  .g-grid > .g-cell.-showHighdef {
-    display: block; } }
-
 /***
 
-VARIABLES
-This is master variables file. This file must not be edited.
-
-***/
-/***
-
-IMPORT CUSTOMIZATIONS
-This file imports settings.less file. Any customization must be updated in
-settings.less file.
-
-***/
-/***
-
-CONFIGURATION
-This is master configuration file for customizing Nucleus Framework.
-Here are the available configuration options:
-
-size: grid4px|grid8px|fibonacci
+LISTS
+This is master lists file. This file must not be edited.
 
 ***/
 /***
 
 VARIABLES
 This is master variables file. This file must not be edited.
+Here is the variable name format for further implementation and customization.
+
+namespace-module-parameter-variant
+e.g. nc-breakpoints-mobile-start
 
 ***/
 /***
 
-IMPORT CUSTOMIZATIONS
-This file imports settings.less file. Any customization must be updated in
-settings.less file.
-
-***/
-/***
-
-CONFIGURATION
-This is master configuration file for customizing Nucleus Framework.
-Here are the available configuration options:
-
-size: grid4px|grid8px|fibonacci
+LISTS
+This is master lists file. This file must not be edited.
 
 ***/
 /***
 
 VARIABLES
 This is master variables file. This file must not be edited.
+Here is the variable name format for further implementation and customization.
+
+namespace-module-parameter-variant
+e.g. nc-breakpoints-mobile-start
 
 ***/
 /***
 
-IMPORT CUSTOMIZATIONS
-This file imports settings.less file. Any customization must be updated in
-settings.less file.
-
-***/
-/***
-
-CONFIGURATION
-This is master configuration file for customizing Nucleus Framework.
-Here are the available configuration options:
-
-size: grid4px|grid8px|fibonacci
+LISTS
+This is master lists file. This file must not be edited.
 
 ***/
 /***
 
 VARIABLES
 This is master variables file. This file must not be edited.
+Here is the variable name format for further implementation and customization.
+
+namespace-module-parameter-variant
+e.g. nc-breakpoints-mobile-start
 
 ***/
 /***
 
-IMPORT CUSTOMIZATIONS
-This file imports settings.less file. Any customization must be updated in
-settings.less file.
-
-***/
-/***
-
-CONFIGURATION
-This is master configuration file for customizing Nucleus Framework.
-Here are the available configuration options:
-
-size: grid4px|grid8px|fibonacci
+LISTS
+This is master lists file. This file must not be edited.
 
 ***/
 /***
 
 VARIABLES
 This is master variables file. This file must not be edited.
+Here is the variable name format for further implementation and customization.
+
+namespace-module-parameter-variant
+e.g. nc-breakpoints-mobile-start
 
 ***/
-/***
-
-IMPORT CUSTOMIZATIONS
-This file imports settings.less file. Any customization must be updated in
-settings.less file.
-
-***/
-/***
-
-CONFIGURATION
-This is master configuration file for customizing Nucleus Framework.
-Here are the available configuration options:
-
-size: grid4px|grid8px|fibonacci
-
-***/
-/***
-
-VARIABLES
-This is master variables file. This file must not be edited.
-
-***/
-/***
-
-IMPORT CUSTOMIZATIONS
-This file imports settings.less file. Any customization must be updated in
-settings.less file.
-
-***/
-/***
-
-CONFIGURATION
-This is master configuration file for customizing Nucleus Framework.
-Here are the available configuration options:
-
-size: grid4px|grid8px|fibonacci
-
-***/
-.s-section {
-  padding-top: 2rem;
-  padding-bottom: 2rem; }
-
-.c-heading {
-  padding-left: 2rem;
-  padding-bottom: 2rem;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 1rem;
-  font-weight: 400; }
-
-.c-cell {
-  background-color: #a3daff;
-  border: 1px solid #228ae6;
-  padding: 0.5rem 0;
-  text-align: center;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 0.875rem;
-  font-weight: 300;
-  color: #1862ab; }

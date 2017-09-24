@@ -11,13 +11,13 @@ gulp.task('sync', function () {
 });
 
 gulp.task('sass', ['sync'], function () {
-	return 	gulp.src('./source/nucleus.scss')
+	return 	gulp.src(['./source/framework.scss', './source/utilities.scss', './source/docs.scss'])
 			.pipe(sass().on('error', sass.logError))
 			.pipe(gulp.dest('./build'));
 });
 
 gulp.task('minify-css', ['sass'], function () {
-	return	gulp.src('./build/nucleus.css')
+	return	gulp.src(['./build/framework.css', './build/utilities.css'])
 			.pipe(minify({
 				minify: true,
 				collapseWhitespace: true,

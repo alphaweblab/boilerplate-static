@@ -1,11 +1,12 @@
-@import '../settings/variables';
+@import '../settings/lists';
+@import '../plugins/type-checking/type-checking';
 
 @mixin typography($font: heading, $size: medium, $weight: 400, $line-height: auto) {
-	font-family: #{map-get($fonts, $font)};
+	font-family: #{map-get($nc-fonts-list, $font)};
 	font-weight: $weight;
 	@if $font == heading {
 		@if is-length($size) == false {
-			font-size: #{map-get(map-get($typography-scales, heading), $size)};
+			font-size: #{map-get(map-get($nc-typography-scales-list, heading), $size)};
 		}
 		@if is-length($size) == true {
 			font-size: $size;
@@ -13,7 +14,7 @@
 	}
 	@if $font == body {
 		@if is-length($size) == false {
-			font-size: #{map-get(map-get($typography-scales, body), $size)};
+			font-size: #{map-get(map-get($nc-typography-scales-list, body), $size)};
 		}
 		@if is-length($size) == true {
 			font-size: $size;
@@ -21,7 +22,7 @@
 	}
 	@if $font == additional {
 		@if is-length($size) == false {
-			font-size: #{map-get(map-get($typography-scales, body), $size)};
+			font-size: #{map-get(map-get($nc-typography-scales-list, body), $size)};
 		}
 		@if is-length($size) == true {
 			font-size: $size;
@@ -29,10 +30,10 @@
 	}
 	@if $line-height == auto {
 		@if $font == heading {
-			line-height: $typography-scale;
+			line-height: $nc-typography-scale;
 		}
 		@if $font == body {
-			line-height: $typography-scale * $typography-scale;
+			line-height: $nc-typography-scale * $nc-typography-scale;
 		}
 	}
 	@else {
